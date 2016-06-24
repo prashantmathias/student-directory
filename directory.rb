@@ -5,7 +5,20 @@ def input_students
   @studentscount = []
 
 
+
+  typo = ["january","february","march","april","may","june","july","august",
+           "september","october","november","december"]
+
   name = gets.chomp
+  puts "Please enter cohort"
+  cohort = gets.chomp
+  if cohort.empty?
+     cohort = :november
+  elsif typo.collect {|x| x if x == cohort.downcase}.join == ""
+    puts "Please check for typos"
+  else
+    cohort
+  end
   puts "Please enter hobbies"
   hobbies = gets.chomp
   puts "Please enter country of birth"
@@ -15,11 +28,20 @@ def input_students
 
   while !name.empty? do
     @studentscount << {name: name}
-    students << {name: name, cohort: :november, hobbies: hobbies,
+    students << {name: name, cohort: cohort.to_sym, hobbies: hobbies,
                  country: country, height: height}
     puts "Now we have #{students.count} students"
-    puts "Please enter next name or hit enter 4 times to exit"
+    puts "Please enter next name or hit enter 5 times to exit"
     name = gets.chomp
+    puts "Please enter cohort"
+    cohort = gets.chomp
+    if cohort.empty?
+       cohort = :november
+    elsif typo.collect {|x| x if x == cohort.downcase}.join == ""
+      puts "Please check for typos"
+    else
+      cohort
+    end
     puts "Please enter hobbies"
     hobbies = gets.chomp
     puts "Please enter country of birth"
