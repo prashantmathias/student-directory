@@ -54,20 +54,27 @@ def input_students
 end
 
 def print_header
-  puts "The students of Villains Academy".center(60)
+  puts "The students of Villains Academy's #{@enter_cohort} cohort".center(60)
   puts "-------------".center(60)
 end
 
 def print(names)
   while !names.empty? do
     x = names.shift
-    puts "#{x[:name]} (#{x[:cohort]} cohort), hobbies: #{x[:hobbies]}, country of birth: #{x[:country]}, Height: #{x[:height]}".center(60)
+    if x[:cohort] == @enter_cohort
+      puts "#{x[:name]} (#{x[:cohort]} cohort), hobbies: #{x[:hobbies]}, country of birth: #{x[:country]}, Height: #{x[:height]}".center(60)
+    else
+      puts "No students in the #{@enter_cohort} cohort"
+    end
+
   end
 end
 
 def print_footer(names)
   puts "Overall, we have #{names.count} great students".center(60)
 end
+
+@enter_cohort = :november
 
 students = input_students
 print_header
