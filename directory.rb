@@ -9,9 +9,9 @@ def input_students
   typo = ["january","february","march","april","may","june","july","august",
            "september","october","november","december"]
 
-  name = gets.chomp
+  name = gets.delete("\n")
   puts "Please enter cohort"
-  cohort = gets.chomp
+  cohort = gets.delete("\n")
   if cohort.empty?
      cohort = :november
   elsif typo.collect {|x| x if x == cohort.downcase}.join == ""
@@ -20,11 +20,11 @@ def input_students
     cohort
   end
   puts "Please enter hobbies"
-  hobbies = gets.chomp
+  hobbies = gets.delete("\n")
   puts "Please enter country of birth"
-  country = gets.chomp
+  country = gets.delete("\n")
   puts "Please enter height"
-  height = gets.chomp
+  height = gets.delete("\n")
 
   while !name.empty? do
     @studentscount << {name: name}
@@ -32,9 +32,9 @@ def input_students
                  country: country, height: height}
     puts "Now we have #{students.count} students"
     puts "Please enter next name or hit enter 5 times to exit"
-    name = gets.chomp
+    name = gets.delete("\n")
     puts "Please enter cohort"
-    cohort = gets.chomp
+    cohort = gets.delete("\n")
     if cohort.empty?
        cohort = :november
     elsif typo.collect {|x| x if x == cohort.downcase}.join == ""
@@ -43,11 +43,11 @@ def input_students
       cohort
     end
     puts "Please enter hobbies"
-    hobbies = gets.chomp
+    hobbies = gets.delete("\n")
     puts "Please enter country of birth"
-    country = gets.chomp
+    country = gets.delete("\n")
     puts "Please enter height"
-    height = gets.chomp
+    height = gets.delete("\n")
 
   end
   students
