@@ -1,4 +1,4 @@
-  @students = []
+@students = []
 
 def input_students
   puts "Please enter the names of the students"
@@ -52,17 +52,25 @@ def process(selection)
   case selection
   when "1"
     input_students
+    action_message
   when "2"
     show_students
+    action_message
   when "3"
     save_students
+    action_message
   when "4"
     load_students
+    action_message
   when "5"
     exit
   else
     puts "I don't know what you meant, try again"
   end
+end
+
+def action_message
+  puts "Success!"
 end
 
 def print_header
